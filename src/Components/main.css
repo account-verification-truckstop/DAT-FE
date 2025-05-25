@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",
+    Arial,"Noto Sans",sans-serif,"Apple Color Emoji",
+    "Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    position: fixed;
+    background: rgb(59,72,84);
+    background: linear-gradient(to bottom,rgb(59,72,84) 0%,rgb(25,33,41) 100%),url(https://hlp.prod.prod.dat.com/login/assets/map.png);
+    background-blend-mode: multiply;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.AllPage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+}
+.App {
+    overflow: auto;
+}
